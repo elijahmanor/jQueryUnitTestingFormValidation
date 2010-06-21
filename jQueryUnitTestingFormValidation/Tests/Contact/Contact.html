@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link type='text/css' rel='stylesheet' href='http://github.com/jquery/qunit/raw/master/qunit/qunit.css' />
+    <!--<link href="../../Content/Styles/Site.css" rel="stylesheet" type="text/css" />-->
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/Styles/jquery.pnotify.default.css" rel="stylesheet" type="text/css" /> 
+    <script type="text/javascript">
+        var basePath = '/';
+    </script> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js" type="text/javascript"></script> 
+    <script src="../../Content/Scripts/jquery.validate.js" type="text/javascript"></script> 
+    <script src="../../Content/Scripts/MicrosoftMvcJQueryValidation.js" type="text/javascript"></script> 
+    <script src="../../Content/Scripts/jquery.pnotify.js" type="text/javascript"></script> 
+    <script src="../../Content/Scripts/NotificationModule.js" type="text/javascript"></script> 
+    <script src="../../Content/Scripts/ValidationModule.js" type="text/javascript"></script> 
+    <script src="http://github.com/jquery/jquery-metadata/raw/master/jquery.metadata.js" type="text/javascript"></script>
+    <!--<script src="http://github.com/jquery/qunit/raw/master/qunit/qunit.js" type="text/javascript"></script>-->
+    <!--<script src="http://github.com/mmonteleone/pavlov/raw/master/pavlov.js" type="text/javascript"></script>-->
+    <script src="../../Content/Scripts/qunit.js" type="text/javascript"></script>
+    <script src="../../Content/Scripts/pavlov.js" type="text/javascript"></script>
+    <script type="text/javascript">        
+        $(function () {
+            notificationModule.init();            
+        });
+    </script> 
+    <script src="ContactTestModule.js" type="text/javascript"></script>
+    <script src="ContactTestsBdd.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var blockOptions = {};
+    </script>
+    <meta charset="utf-8" />
+    <title>jQuery Unit Tests</title>
+    <script type="text/javascript">
+        var playGroundSelector = "#playground";
+    </script>
+</head>
+<body>
+    <h1 id="qunit-header">QUnit Test Suite</h1>
+    <h2 id="qunit-banner"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+    <div id="playground" class="content-main" style="display: none;"> 
+        <span id="toolbar" class="ui-widget-header ui-corner-all"> 
+            <button id="createContact">New Contact</button> 
+        </span> 
+ 
+        <h2>Welcome to ASP.NET MVC!</h2> 
+        <p> 
+            To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+        </p> 
+ 
+        <div id="createDialog" title="New Contact" style="display: none;"> 
+            <form action="/Contact/Create" id="createPost" method="post"> 
+                <dl> 
+                    <dt><label for="Name">Name</label></dt> 
+                    <dd> 
+                        <input class="text-box single-line" id="Name" name="Name" type="text" value="" /> 
+                        <span class="field-validation-valid" id="Name_validationMessage"></span> 
+                    </dd> 
+                    <dt><label for="Email">E-mail</label></dt>            
+                    <dd> 
+                        <input class="text-box single-line" id="Email" name="Email" type="text" value="" /> 
+                        <span class="field-validation-valid" id="Email_validationMessage"></span> 
+                    </dd> 
+                    <dt><label for="PhoneNumber">Phone Number</label></dt> 
+                    <dd> 
+                        <input class="text-box single-line" id="PhoneNumber" name="PhoneNumber" type="text" value="" /> 
+                        <span class="field-validation-valid" id="PhoneNumber_validationMessage"></span> 
+                    </dd> 
+                    <dt><label for="DateOfBirth">Date of Birth</label></dt> 
+                    <dd> 
+                        <input class="text-box single-line" id="DateOfBirth" name="DateOfBirth" type="text" value="" /> 
+                        <span class="field-validation-valid" id="DateOfBirth_validationMessage"></span> 
+                    </dd> 
+                    <dt><label for="IsMarried">Is Married</label></dt> 
+                    <dd> 
+                        <input class="check-box" id="IsMarried" name="IsMarried" type="checkbox" value="true" /><input name="IsMarried" type="hidden" value="false" /> 
+                        <span class="field-validation-valid" id="IsMarried_validationMessage"></span> 
+                    </dd>            
+                </dl> 
+            </form>
+            <script type="text/javascript"> 
+            //<![CDATA[
+                if (!window.mvcClientValidationMetadata) { window.mvcClientValidationMetadata = []; }
+                window.mvcClientValidationMetadata.push({ "Fields": [{ "FieldName": "Name", "ReplaceValidationMessageContents": true, "ValidationMessageId": "Name_validationMessage", "ValidationRules": [{ "ErrorMessage": "Name Required", "ValidationParameters": {}, "ValidationType": "required" }, { "ErrorMessage": "Name must be less than or equal to 50 characters", "ValidationParameters": { "minimumLength": 0, "maximumLength": 50 }, "ValidationType": "stringLength"}] }, { "FieldName": "Email", "ReplaceValidationMessageContents": true, "ValidationMessageId": "Email_validationMessage", "ValidationRules": [{ "ErrorMessage": "Email Required", "ValidationParameters": {}, "ValidationType": "required" }, { "ErrorMessage": "Email must be valid", "ValidationParameters": { "pattern": "^([a-z0-9!#$%&\u0027*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\u0027*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\s*;?\\s*)+$" }, "ValidationType": "regularExpression" }, { "ErrorMessage": "Email must be less than or equal to 50 characters", "ValidationParameters": { "minimumLength": 0, "maximumLength": 50 }, "ValidationType": "stringLength"}] }, { "FieldName": "PhoneNumber", "ReplaceValidationMessageContents": true, "ValidationMessageId": "PhoneNumber_validationMessage", "ValidationRules": [{ "ErrorMessage": "Phone Number Required", "ValidationParameters": {}, "ValidationType": "required" }, { "ErrorMessage": "Phone must be less than or equal to 50 characters", "ValidationParameters": { "minimumLength": 0, "maximumLength": 50 }, "ValidationType": "stringLength"}] }, { "FieldName": "DateOfBirth", "ReplaceValidationMessageContents": true, "ValidationMessageId": "DateOfBirth_validationMessage", "ValidationRules": [{ "ErrorMessage": "Date of Birth Required", "ValidationParameters": {}, "ValidationType": "required"}] }, { "FieldName": "IsMarried", "ReplaceValidationMessageContents": true, "ValidationMessageId": "IsMarried_validationMessage", "ValidationRules": [{ "ErrorMessage": "Required", "ValidationParameters": {}, "ValidationType": "required"}]}], "FormId": "createPost", "ReplaceValidationSummary": false });
+            //]]>
+            </script>    
+        </div> 
+ 
+        <script src="../../Content/Scripts/ContactCreateModule.js" type="text/javascript"></script> 
+        <script type="text/javascript">
+            $(function () {
+                contactCreateModule.init();
+            });
+        </script> 
+    </div>
+</body>
+</html>
