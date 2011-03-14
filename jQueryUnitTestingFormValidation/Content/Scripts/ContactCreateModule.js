@@ -1,4 +1,4 @@
-﻿
+
 /// <reference path="jquery-1.4.1-vsdoc.js" />
 
 var contactCreateModule = (function () {
@@ -74,15 +74,15 @@ var contactCreateModule = (function () {
 
     public.postContactSuccess = function (data, textStatus, xhr) {
         if (data && data.Success) {
-            commonModule.displayMessage(true, "Your contact has been created!");
+            notificationModule.displayMessage(true, "Your contact has been created!");
         } else {
-            commonModule.displayMessages(data.Success, data.Messages);
+            notificationModule.displayMessages(data.Success, data.Messages);
         }
     };
 
     public.postContactError = function (xhr, textStatus, error) {
         var errorMessage = exception ? exception : xhr.statusText;
-        commonModule.displayMessage(false, "There was an error creating your contact: " + errorMessage);
+        notificationModule.displayMessage(false, "There was an error creating your contact: " + errorMessage);
     };
 
     return public;
